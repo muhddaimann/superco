@@ -1,13 +1,13 @@
 export const LightColors = {
-  primary: '#5B5F97',
+  primary: '#1B2A49',
   onPrimary: '#FFFFFF',
-  primaryContainer: '#C7C9E9',
-  onPrimaryContainer: '#1C1E47',
+  primaryContainer: '#A8B3CC',
+  onPrimaryContainer: '#10172B',
 
-  secondary: '#A14F66',
-  onSecondary: '#FFFFFF',
-  secondaryContainer: '#E1B5C1',
-  onSecondaryContainer: '#3F1F29',
+  secondary: '#74D2E7',
+  onSecondary: '#002831',
+  secondaryContainer: '#C2F1FB',
+  onSecondaryContainer: '#00303C',
 
   tertiary: '#6D9886',
   onTertiary: '#FFFFFF',
@@ -31,33 +31,36 @@ export const LightColors = {
 };
 
 export const DarkColors = {
-  primary: '#AEB0E5',
-  onPrimary: '#23264C',
-  primaryContainer: '#5B5F97',
+  primary: '#A8B3CC',
+  onPrimary: '#10172B',
+  primaryContainer: '#1B2A49',
   onPrimaryContainer: '#FFFFFF',
 
-  secondary: '#E7A6B4',
-  onSecondary: '#4A2430',
-  secondaryContainer: '#A14F66',
-  onSecondaryContainer: '#FFFFFF',
+  secondary: '#C2F1FB',
+  onSecondary: '#00303C',
+  secondaryContainer: '#74D2E7',
+  onSecondaryContainer: '#002831',
 
-  tertiary: '#AECFC3',
-  onTertiary: '#1C322B',
-  tertiaryContainer: '#6D9886',
+  tertiary: '#A2DEC8',
+  onTertiary: '#00382B',
+  tertiaryContainer: '#4B7F6B',
   onTertiaryContainer: '#FFFFFF',
 
-  error: '#B35C5C',
-  onError: '#1F0D0D',
+  error: '#F28B82',
+  onError: '#5C1A1A',
   errorContainer: '#8C3B3B',
   onErrorContainer: '#FFFFFF',
 
   background: '#1A1A1A',
   onBackground: '#F4F4F4',
-  outline: '#5E6170',
-  shadow: '#000000',
 
   surface: '#262626',
   onSurface: '#F1F1F1',
+
   surfaceVariant: '#383A46',
   onSurfaceVariant: '#D4D6E2',
+
+  outline: '#5E6170',
+  shadow: '#000000',
 };
+

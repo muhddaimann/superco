@@ -1,4 +1,4 @@
-template/
+superco/
 ├─ app/
 │  ├─ (tabs)/
 │  │  ├─ a/
@@ -54,3 +54,54 @@ template/
 │  ├─ useBottomNav.tsx
 │  └─ useToast.tsx
 
+
+└─ SuperCo
+   ├─ AuthOnboardingStack
+   │   ├─ Login
+   │   ├─ Signup (with invite/org email)
+   │   └─ RoleRedirect (Supervisor Only)
+   └─ Tabs (Bottom Navigation)
+       ├─ Home
+       │   ├─ TodayView
+       │   │   ├─ Shows real-time team status: Present, Late, WFH, On Leave
+       │   │   └─ Color-coded by team (Web, Mobile, AI)
+       │   ├─ QuickActions
+       │   │   ├─ One-tap approve/reject for leave/overtime
+       │   │   └─ Reassign shift/task quickly
+       │   ├─ CalendarSummary
+       │   │   ├─ Heatmap of leave/shift coverage
+       │   │   └─ Flags potential understaffing or overload
+       │
+       ├─ Team
+       │   ├─ TeamList
+       │   │   ├─ Filter by department
+       │   │   └─ Status icons (Leave, Remote, Present)
+       │   ├─ MemberProfile
+       │   │   ├─ Skills, tags, attendance %, leave balance
+       │   │   └─ Personal notes / 1:1 tracker
+       │   ├─ ScheduleAssign
+       │   │   ├─ Drag-drop shift planner
+       │   │   └─ Schedule conflict detection
+       │
+       ├─ Approval
+       │   ├─ LeaveApprovals
+       │   │   ├─ Clash alerts (same-day leave)
+       │   │   └─ Attendance & workload context
+       │   ├─ OvertimeApprovals
+       │   │   ├─ Reason + project link
+       │   │   └─ Optional approval comment
+       │   ├─ RequestHistory
+       │   │   ├─ Filter by team or date
+       │   │   └─ See who approved what
+       │
+       └─ Settings
+           ├─ Announcements
+           │   ├─ Push notices to teams
+           │   └─ Rich formatting (links, urgency tag)
+           ├─ Notifications
+           │   └─ All alerts (approvals, reminders)
+           ├─ Settings
+           │   └─ Theme, profile, notification prefs
+           └─ Feedback
+               ├─ Report bugs / request features
+               └─ View changelog & updates

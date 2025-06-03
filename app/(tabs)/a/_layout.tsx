@@ -21,6 +21,18 @@ export default function LayoutA() {
           title: "",
         }}
       />
+      <Stack.Screen
+        name="notificationPage"
+        options={{
+          headerShown: true,
+          title: "",
+          headerStyle: {
+            backgroundColor: theme.colors.surface,
+          },
+          headerTintColor: theme.colors.onSurface,
+          headerShadowVisible: false,
+        }}
+      />
     </Stack>
   );
 }

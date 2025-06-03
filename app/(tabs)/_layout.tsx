@@ -27,46 +27,49 @@ function TabLayoutInner() {
             title: "Home",
             tabBarIcon: ({ color }) => (
               <MaterialCommunityIcons
-                name="home"
+                name="calendar-today"
                 color={color}
                 size={wp("6.5%")}
               />
             ),
           }}
         />
+
         <Tabs.Screen
           name="b"
           options={{
-            title: "Dashboard",
+            title: "Team",
             tabBarIcon: ({ color }) => (
               <MaterialCommunityIcons
-                name="desktop-mac-dashboard"
+                name="account-group"
                 color={color}
                 size={wp("6.5%")}
               />
             ),
           }}
         />
+
         <Tabs.Screen
           name="c"
           options={{
-            title: "Reporting",
+            title: "Approval",
             tabBarIcon: ({ color }) => (
               <MaterialCommunityIcons
-                name="chart-bar"
+                name="clipboard-check-multiple"
                 color={color}
                 size={wp("6.5%")}
               />
             ),
           }}
         />
+
         <Tabs.Screen
           name="d"
           options={{
-            title: "Profile",
+            title: "Settings",
             tabBarIcon: ({ color }) => (
               <MaterialCommunityIcons
-                name="face-agent"
+                name="cog"
                 color={color}
                 size={wp("6.5%")}
               />

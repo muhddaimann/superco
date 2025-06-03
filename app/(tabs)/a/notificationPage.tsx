@@ -1,8 +1,7 @@
-import OverallSummary from "@/components/a/overallSummary";
-import QuickAction from "@/components/a/quickAction";
-import TodayView from "@/components/a/todayView";
-import UserCard from "@/components/a/userCard";
-import SkeletonLoad from "@/components/skeletonLoad";
+import AnnouncementList from "@/components/a/announcementList";
+import UserCard from "@/components/a/userCardd";
+import AnnouncementFAB from "@/components/announcementFAB";
+import SkeletonLoad from "@/components/skeletonLoadd";
 import TopFAB from "@/components/topFAB";
 import { useTabVisibility } from "@/contexts/bottomContext";
 import { useScrollDirection } from "@/hooks/useBottomNav";
@@ -18,7 +17,7 @@ import {
 import { useTheme } from "react-native-paper";
 import { widthPercentageToDP as wp } from "react-native-responsive-screen";
 
-export default function Home() {
+export default function NotificationPage() {
   const theme = useTheme();
   const { direction, onScroll } = useScrollDirection();
   const { setHideTabBar } = useTabVisibility();
@@ -26,6 +25,7 @@ export default function Home() {
   const [refreshing, setRefreshing] = useState(false);
   const scrollRef = useRef<ScrollView>(null);
   const [showFab, setShowFab] = useState(false);
+  const [showAnnouncement, setShowAnnouncement] = useState(true);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -44,13 +44,14 @@ export default function Home() {
     setRefreshing(true);
     setTimeout(() => {
       setRefreshing(false);
-      showToast({ message: "Home data refreshed!", type: "success" });
+      showToast({ message: "Notification refreshed!", type: "success" });
     }, 800);
   }, [showToast]);
 
   const handleScroll = (event: any) => {
     const scrollY = event.nativeEvent.contentOffset.y;
     setShowFab(scrollY > wp("25%"));
+    setShowAnnouncement(scrollY <= wp("25%"));
   };
 
   return (
@@ -82,9 +83,7 @@ export default function Home() {
               <SkeletonLoad />
             ) : (
               <>
-                <TodayView />
-                <QuickAction />
-                <OverallSummary />
+                <AnnouncementList />
               </>
             )}
           </View>
@@ -92,6 +91,12 @@ export default function Home() {
       </ScrollView>
 
       <TopFAB visible={showFab} scrollRef={scrollRef} />
+      <AnnouncementFAB
+        visible={showAnnouncement}
+        onPress={() => {
+          showToast({ message: "Create new announcement", type: "info" });
+        }}
+      />
     </>
   );
 }
@@ -108,13 +113,5 @@ const styles = StyleSheet.create({
     width: "100%",
     paddingHorizontal: wp("4%"),
     gap: wp("2%"),
-  },
-  card: {
-    height: wp("250%"),
-    borderRadius: wp("4%"),
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 1,
-    elevation: 2,
   },
 });

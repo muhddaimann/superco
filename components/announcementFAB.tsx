@@ -1,17 +1,20 @@
 import React, { useEffect, useRef } from "react";
-import { Animated, Easing, ScrollView, StyleSheet } from "react-native";
+import { Animated, Easing, StyleSheet } from "react-native";
 import { FAB, useTheme } from "react-native-paper";
 import { widthPercentageToDP as wp } from "react-native-responsive-screen";
 
-type TopFABProps = {
+type AnnouncementFABProps = {
   visible: boolean;
-  scrollRef: React.RefObject<ScrollView | null>;
+  onPress: () => void;
 };
 
-export default function TopFAB({ visible, scrollRef }: TopFABProps) {
+export default function AnnouncementFAB({
+  visible,
+  onPress,
+}: AnnouncementFABProps) {
   const theme = useTheme();
-  const scale = useRef(new Animated.Value(0)).current;
-  const opacity = useRef(new Animated.Value(0)).current;
+  const scale = useRef(new Animated.Value(visible ? 1 : 0)).current;
+  const opacity = useRef(new Animated.Value(visible ? 1 : 0)).current;
 
   useEffect(() => {
     Animated.parallel([
@@ -30,10 +33,6 @@ export default function TopFAB({ visible, scrollRef }: TopFABProps) {
     ]).start();
   }, [visible, scale, opacity]);
 
-  const scrollToTop = () => {
-    scrollRef.current?.scrollTo({ y: 0, animated: true });
-  };
-
   return (
     <Animated.View
       style={[
@@ -45,12 +44,9 @@ export default function TopFAB({ visible, scrollRef }: TopFABProps) {
       ]}
     >
       <FAB
-        icon="chevron-up"
-        onPress={scrollToTop}
-        size="small"
-        style={{
-          backgroundColor: theme.colors.primary,
-        }}
+        icon="plus"
+        onPress={onPress}
+        style={{ backgroundColor: theme.colors.primary }}
         color={theme.colors.onPrimary}
       />
     </Animated.View>
@@ -60,10 +56,10 @@ export default function TopFAB({ visible, scrollRef }: TopFABProps) {
 const styles = StyleSheet.create({
   container: {
     position: "absolute",
-    alignSelf: "center",
-    top: wp("2%"),
+    bottom: wp("30%"),
+    right: wp("5%"),
     zIndex: 10,
-    borderRadius: wp("10%"),
+    borderRadius: wp("4%"),
     elevation: 6,
   },
 });

@@ -18,13 +18,13 @@ export default function LogoutFAB({ visible }: LogoutFABProps) {
     Animated.parallel([
       Animated.timing(scale, {
         toValue: visible ? 1 : 0,
-        duration: 250,
+        duration: 200,
         easing: Easing.out(Easing.ease),
         useNativeDriver: true,
       }),
       Animated.timing(opacity, {
         toValue: visible ? 1 : 0,
-        duration: 250,
+        duration: 200,
         easing: Easing.out(Easing.ease),
         useNativeDriver: true,
       }),
@@ -38,9 +38,8 @@ export default function LogoutFAB({ visible }: LogoutFABProps) {
   return (
     <Animated.View
       style={[
-        styles.fab,
+        styles.container,
         {
-          backgroundColor: theme.colors.error,
           opacity,
           transform: [{ scale }],
         },
@@ -49,19 +48,20 @@ export default function LogoutFAB({ visible }: LogoutFABProps) {
       <FAB
         icon="logout"
         onPress={handleLogout}
-        color={theme.colors.onError}
         style={{ backgroundColor: theme.colors.error }}
+        color={theme.colors.onError}
       />
     </Animated.View>
   );
 }
 
 const styles = StyleSheet.create({
-  fab: {
+  container: {
     position: "absolute",
     bottom: wp("30%"),
     right: wp("5%"),
-    borderRadius: wp("4%"),
     zIndex: 10,
+    borderRadius: wp("4%"),
+    elevation: 6,
   },
 });
