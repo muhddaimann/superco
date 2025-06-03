@@ -1,3 +1,4 @@
+import TeamView from "@/components/c/approvalList";
 import UserCard from "@/components/c/userCard";
 import TopFAB from "@/components/topFAB";
 import { useTabVisibility } from "@/contexts/bottomContext";
@@ -41,15 +42,7 @@ export default function Reporting() {
         <UserCard />
 
         <View style={styles.body}>
-          <View
-            style={[
-              styles.card,
-              {
-                backgroundColor: theme.colors.surface,
-                shadowColor: theme.colors.shadow,
-              },
-            ]}
-          ></View>
+          <TeamView />
         </View>
       </ScrollView>
 
@@ -67,13 +60,5 @@ const styles = StyleSheet.create({
     width: "100%",
     paddingHorizontal: wp("4%"),
     gap: wp("2%"),
-  },
-  card: {
-    height: wp("250%"),
-    borderRadius: wp("4%"),
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 1,
-    elevation: 2,
   },
 });
